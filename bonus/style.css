@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+ul, ol, menu {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+span {
+    font-weight: 400;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card {
+    flex-basis: calc((100% -3rem) / 4);
+    line-height: 1.5rem;
+}
+
+h2 {
+    margin-bottom: 2rem;
+}
+
+img{
+    max-width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+}
