@@ -30,7 +30,3 @@ $bambi = new Movie('Bambi', 'Aron Arone', 117, 'de', 4.2);
 // $bambi -> vote = 4.2;
 
 $ryan = new Movie('Saving Private Ryan', 'Steven Spielberg', 169, 'en', 'ottimo');
-
-
-
-var_dump($bambi, $ryan);
