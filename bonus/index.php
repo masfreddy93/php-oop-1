@@ -44,6 +44,7 @@ $movies = [$bambi, $ryan, $inception, $titanic];
                     <h5> Running time: <span><?= $movie['running_time'] ?></span></h5>
                     <h5> Original lang: <span><?= $movie['original_language'] ?></span></h5>
                     <h5> Vote: <span><?= $movie['vote'] ?></span></h5>
+                    
                 </li>
             <?php
             }
