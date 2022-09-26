@@ -4,14 +4,18 @@ include __DIR__ . '/app/Movie.php';
 include __DIR__ . '/app/Actor.php';
 
 //creare attori con Actor class
-$leo = new Actor('Leonardo', 'di Caprio');
-$tom = new Actor('Tom', 'Hanks');
-var_dump($leo, $tom);
+$leo = (array) new Actor('Leonardo', 'di Caprio');
+$tom = (array) new Actor('Tom', 'Hanks');
+$bambi = (array) new Actor('Bambi', '');
+$vin = (array) new Actor('Vin', 'Diesel');
+$others = (array) new Actor('Others', '');
 
-$bambi = (array) new Movie('Bambi', 'Aron Arone', 117, 'de', 4.2, 'https://www.corriere.it/methode_image/2022/08/13/Spettacoli/Foto%20Spettacoli%20-%20Trattate/bambi%204-keqG-U33601694680386CYG-656x492@Corriere-Web-Sezioni.jpg', ['bambi', 'mamma di bamby', 'altri animali']);
-$ryan = (array) new Movie('Saving Private Ryan', 'Steven Spielberg', 169, 'en', 4.6, 'https://pad.mymovies.it/filmclub/2006/01/051/locandina.jpg', ['tom hanks', 'soldato ryan', 'vin diesel', 'altri attori']);
+// var_dump($leo, $tom);
+
+$bambi = (array) new Movie('Bambi', 'Aron Arone', 117, 'de', 4.2, 'https://www.corriere.it/methode_image/2022/08/13/Spettacoli/Foto%20Spettacoli%20-%20Trattate/bambi%204-keqG-U33601694680386CYG-656x492@Corriere-Web-Sezioni.jpg', [$bambi, $others]);
+$ryan = (array) new Movie('Saving Private Ryan', 'Steven Spielberg', 169, 'en', 4.6, 'https://pad.mymovies.it/filmclub/2006/01/051/locandina.jpg', [$tom, $others]);
 $inception = (array) new Movie('Inception', 'Cristopher Nolan', 147, 'en', 4.5, 'https://m.media-amazon.com/images/I/912AErFSBHL._SL1500_.jpg', [$leo]);
-$titanic = (array) new Movie('Titanic', 'James Cameron', 182, 'en', 4.9, 'https://www.superguidatv.it/wp-content/uploads/2019/10/titanic-film.jpg', ['cleo di caprio', 'rose rose', 'nave che affonda']);
+$titanic = (array) new Movie('Titanic', 'James Cameron', 182, 'en', 4.9, 'https://www.superguidatv.it/wp-content/uploads/2019/10/titanic-film.jpg', [$leo, $others]);
 
 
 // var_dump($bambi, $ryan, $inception, $titanic);
@@ -20,7 +24,7 @@ $titanic = (array) new Movie('Titanic', 'James Cameron', 182, 'en', 4.9, 'https:
 
 //unire istanze film in array
 $movies = [$bambi, $ryan, $inception, $titanic];
-var_dump($movies);
+// var_dump($movies);
 
 
 
@@ -51,7 +55,22 @@ var_dump($movies);
                     <h5> Running time: <span><?= $movie['running_time'] ?></span></h5>
                     <h5> Original lang: <span><?= $movie['original_language'] ?></span></h5>
                     <h5> Vote: <span><?= $movie['vote'] ?></span></h5>
-
+                    <h5 class="actors">Actors
+                        <span>
+                            <?php
+                            $actors = $movie['actors'];
+                            foreach ($actors as $actor) {
+                            ?>
+                            <li>
+                                <?=
+                                $actor['name'] . ' ' . $actor['last_name'];
+                                ?>
+                            </li>
+                            <?php
+                            }
+                            ?>
+                        </span>
+                    </h5>
                 </li>
             <?php
             }
